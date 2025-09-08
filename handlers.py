@@ -1,4 +1,4 @@
-from telegram.ext import CommandHandler, MessageHandler, Filters
+from telegram.ext import CommandHandler, MessageHandler, filters
 from downloader import download_and_send
 
 def start(update, context):
@@ -10,4 +10,4 @@ def video_handler(update, context):
 
 def register_handlers(dp):
     dp.add_handler(CommandHandler("start", start))
-    dp.add_handler(MessageHandler(Filters.text & ~Filters.command, video_handler))
+    dp.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, video_handler))
